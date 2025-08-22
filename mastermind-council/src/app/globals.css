@@ -1,0 +1,8 @@
+export default function MasterMindCouncil() {
+  return (
+    <div style={{padding: '50px', background: 'black', color: 'white', minHeight: '100vh'}}>
+      <h1>🎉 Master Mind Council Works!</h1>
+      <p>If you see this, the deployment is successful!</p>
+    </div>
+  )
+}
