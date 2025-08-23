@@ -1483,3 +1483,4 @@ const MasterMindCouncil = () => {
       {renderScreen()}
     </div>
   );
+}
