@@ -1,6 +1,7 @@
-'use client'
-import MasterMindCouncil from '../components/MasterMindCouncil'
-
 export default function Home() {
-  return <MasterMindCouncil />
+  return (
+    <div>
+      <h1>WORKING!</h1>
+    </div>
+  )
 }
