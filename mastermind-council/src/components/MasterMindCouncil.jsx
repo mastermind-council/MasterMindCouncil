@@ -1484,4 +1484,5 @@ const MasterMindCouncil = () => {
       {renderScreen()}
     </div>
   );
-}
+};
+export default MasterMindCouncil;
