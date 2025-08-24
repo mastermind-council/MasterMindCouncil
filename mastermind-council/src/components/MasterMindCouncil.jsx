@@ -127,6 +127,21 @@ const MasterMindCouncil = () => {
   const [inputText, setInputText] = useState('');
   const inputRef = useRef(null);
 
+  const onInputChange = useCallback((e) => {
+  setInputText(e.currentTarget.value);
+}, []);
+
+  const onInputKeyDown = useCallback((e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    const text = inputRef.current?.value?.trim() ?? '';
+    if (!text) return;
+    handleSendMessage({ value: text });
+    setInputText('');
+    queueMicrotask(() => inputRef.current?.focus());
+  }
+}, [handleSendMessage]);
+  
   // Voice state
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
