@@ -250,13 +250,12 @@ const MasterMindCouncil = () => {
   }, [messages]);
 
   // Handle sending messages
-  const handleSendMessage = (inputElement) => {
-    const messageText = inputElement?.value?.trim();
-    if (!messageText) return;
+  const handleSendMessage = () => {
+    if (!inputText.trim()) return;
 
     const userMessage = {
       id: Date.now(),
-      text: messageText,
+      text: inputText.trim(),
       sender: 'user',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
@@ -938,7 +937,7 @@ const MasterMindCouncil = () => {
                 <button
                   onClick={(e) => {
                     const textarea = e.target.closest('.input-container').querySelector('textarea');
-                    handleSendMessage(textarea);
+                    handleSendMessage();
                   }}
                   className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition-all"
                 >
