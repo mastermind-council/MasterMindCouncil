@@ -303,7 +303,7 @@ const MasterMindCouncil = () => {
   };
 
   // Handle Enter key in chat
-  const handleKeyPress = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage(e.target);
