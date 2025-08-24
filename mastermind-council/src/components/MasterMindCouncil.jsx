@@ -125,7 +125,6 @@ const MasterMindCouncil = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [conversationLoaded, setConversationLoaded] = useState(false);
   const [inputText, setInputText] = useState('');
-  const inputRef = useRef(null);
 
   // Voice state
   const [isRecording, setIsRecording] = useState(false);
@@ -250,12 +249,13 @@ const MasterMindCouncil = () => {
   }, [messages]);
 
   // Handle sending messages
-  const handleSendMessage = () => {
-    if (!inputText.trim()) return;
+  const handleSendMessage = (inputElement) => {
+    const messageText = inputElement?.value?.trim();
+    if (!messageText) return;
 
     const userMessage = {
       id: Date.now(),
-      text: inputText.trim(),
+      text: messageText,
       sender: 'user',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
@@ -306,11 +306,9 @@ const MasterMindCouncil = () => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      if (inputText.trim()) {
-      handleSendMessage();
+      handleSendMessage(e.target);
     }
-   }
-  };    
+  };
 
   // Login Screen
   const LoginScreen = () => (
@@ -894,11 +892,10 @@ const MasterMindCouncil = () => {
             {/* Input container with mic and send inside */}
             <div className="flex-1 flex items-center gap-3 bg-white/10 rounded-full px-4 py-3 border border-white/20 focus-within:border-purple-500/50 input-container">
               <textarea
-                ref={inputRef}
                 onKeyPress={handleKeyPress}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 bg-transparent border-none outline-none text-white placeholder-gray-400 resize-none leading-6 caret-white"
+                className="flex-1 bg-transparent border-none outline-none text-white placeholder-gray-400 resize-none leading-6"
                 rows={1}
                 style={{ 
                   minHeight: '48px', 
@@ -937,7 +934,7 @@ const MasterMindCouncil = () => {
                 <button
                   onClick={(e) => {
                     const textarea = e.target.closest('.input-container').querySelector('textarea');
-                    handleSendMessage();
+                    handleSendMessage(textarea);
                   }}
                   className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition-all"
                 >
