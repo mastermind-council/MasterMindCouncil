@@ -892,8 +892,7 @@ const MasterMindCouncil = () => {
             {/* Input container with mic and send inside */}
             <div className="flex-1 flex items-center gap-3 bg-white/10 rounded-full px-4 py-3 border border-white/20 focus-within:border-purple-500/50 input-container">
               <textarea
-                key="message-input"
-                value={inputText}
+                defaultValue=""
                 onKeyPress={handleKeyPress}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Type your message..."
