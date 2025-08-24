@@ -895,7 +895,7 @@ const MasterMindCouncil = () => {
                 id="message-input"
                 name="messageInput"
                 value={inputText}
-                onKeyDown={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Type your message..."
                 className="flex-1 bg-transparent border-none outline-none text-white placeholder-gray-400 resize-none leading-6"
