@@ -894,7 +894,8 @@ const MasterMindCouncil = () => {
               <textarea
                 id="message-input"
                 name="messageInput"
-                onKeyPress={handleKeyPress}
+                value={inputText}
+                onKeyDown={handleKeyPress}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Type your message..."
                 className="flex-1 bg-transparent border-none outline-none text-white placeholder-gray-400 resize-none leading-6"
@@ -904,6 +905,9 @@ const MasterMindCouncil = () => {
                   padding: '12px 0',
                   lineHeight: '1.5'
                 }}
+                autoComplete="off"
+                autoCorrect="off"
+                spellCheck={false}
               />
               
               {/* Action buttons inside the oval */}
