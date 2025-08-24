@@ -125,6 +125,7 @@ const MasterMindCouncil = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [conversationLoaded, setConversationLoaded] = useState(false);
   const [inputText, setInputText] = useState('');
+  const inputRef = useRef(null);
 
   // Voice state
   const [isRecording, setIsRecording] = useState(false);
@@ -916,6 +917,7 @@ const MasterMindCouncil = () => {
                 autoComplete="off"
                 autoCorrect="off"
                 spellCheck={false}
+                aria-label="Message input"
               />
               
               {/* Action buttons inside the oval */}
