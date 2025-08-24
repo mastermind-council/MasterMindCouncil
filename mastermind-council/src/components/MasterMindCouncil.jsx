@@ -307,9 +307,11 @@ const MasterMindCouncil = () => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage(e.target);
+      if (inputText.trim()) {
+      handleSendMessage();
     }
-  };
+   }
+  };    
 
   // Login Screen
   const LoginScreen = () => (
